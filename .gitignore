@@ -1,0 +1,15 @@
+# node dependencies
+/node_modules
+
+# Firebase Credentials
+credentials.json
+
+# env file
+.env
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# IDE - VSCode
+.vscode/*
