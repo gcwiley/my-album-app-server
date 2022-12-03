@@ -19,5 +19,5 @@ try {
   console.error('Unable to connect to the database:', error);
 }
 
-// export the database connection
+// export the sequelize instance
 export { sequelize };

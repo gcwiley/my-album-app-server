@@ -1,8 +1,7 @@
-import { Sequelize, DataTypes } from 'sequelize';
+import { DataTypes } from 'sequelize';
 
-const sequelize = new Sequelize({
-  dialect: 'postgres'
-});
+// import the sequelize instance
+import { sequelize } from '../db/db.js';
 
 // create the Album model
 const Album = sequelize.define('Album', {
@@ -14,7 +13,26 @@ const Album = sequelize.define('Album', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  
+  releaseDate: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  },
+  label: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  studio: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  genre: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  summary: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
 });
 
 // export the model

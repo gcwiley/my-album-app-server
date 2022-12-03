@@ -3,17 +3,21 @@ import { DataTypes } from 'sequelize';
 // import the sequelized instance
 import { sequelize } from '../db/db.js';
 
-const User = sequelize.define('User', {
+const Comment = sequelize.define('Comment', {
   // model attributes are defined here
-  firstName: {
+  title: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  lastName: {
+  description: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  category: {
     type: DataTypes.STRING,
     allowNull: false,
   },
 });
 
 // Export the User model
-export { User };
+export { Comment };

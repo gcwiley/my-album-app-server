@@ -47,10 +47,29 @@ export const getAlbumById = async (req, res) => {
 
 // function to update album by id - UPDATE ALBUM
 export const updateAlbumById = async (req, res) => {
-  console.log('update album by id');
+  try {
+    console.log('This needs to be fixed');
+    res.status(201);
+  } catch (error) {
+    res.status(500).send();
+  }
 };
 
 // function to delete album by id - DELETE ALBUM
 export const deleteAlbumById = async (req, res) => {
-  console.log('delete album by Id');
+  try {
+    const album = await Album.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!album) {
+      res.status(404).send();
+    }
+
+    res.send(album);
+  } catch (error) {
+    res.status(500).send();
+  }
 };
