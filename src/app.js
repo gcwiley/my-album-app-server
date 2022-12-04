@@ -13,9 +13,6 @@ const __dirname = path.resolve();
 // Initialize the Firebase SDK
 initializeApp();
 
-// import the database connection
-import './db/db.js';
-
 // Import Routes
 import albumRouter from './routes/album.js';
 

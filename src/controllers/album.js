@@ -30,7 +30,8 @@ export const getAlbums = async (req, res) => {
 
 // function to fetch invidual album by id = ALBUM BY ID
 export const getAlbumById = async (req, res) => {
-  const id = req.params.id;
+  // converts id string to integer
+  const id = parseInt(req.params.id);
 
   try {
     const album = await Album.findByPk(id);
@@ -47,9 +48,20 @@ export const getAlbumById = async (req, res) => {
 
 // function to update album by id - UPDATE ALBUM
 export const updateAlbumById = async (req, res) => {
+  const id = parseInt(req.params.id);
+
   try {
-    console.log('This needs to be fixed');
-    res.status(201);
+    const album = await Album.update(req.body, {
+      where: {
+        id: id,
+      },
+    });
+
+    if (!album) {
+      res.status(404).send();
+    }
+
+    res.send(album);
   } catch (error) {
     res.status(500).send();
   }
@@ -57,10 +69,13 @@ export const updateAlbumById = async (req, res) => {
 
 // function to delete album by id - DELETE ALBUM
 export const deleteAlbumById = async (req, res) => {
+  // convert string to integer
+  const id = parseInt(req.params.id);
+
   try {
     const album = await Album.destroy({
       where: {
-        id: req.params.id,
+        id: id,
       },
     });
 
