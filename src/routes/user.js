@@ -1,40 +1,29 @@
 import { Router } from 'express';
 
-// import the user Controller
-import {
-  SignUpUser,
-  LoginUser,
-  LogoutUser,
-  LogoutUserAll,
-  getUserProfile,
-  updateUserProfile,
-  deleteUser,
-} from '../controllers/user.js';
-
-// define a new router
 const router = new Router();
 
-// Route to create a new User - SIGN UP USER
-router.post('/users', SignUpUser);
+import {
+  newUser,
+  getUsers,
+  getUserById,
+  updateUserById,
+  deleteUserById,
+} from '../controllers/user.js';
 
-// Route that allows users to login - LOG IN USER
-// login request generates and stores an authentication token and send it back to client
-router.post('/users/login', LoginUser);
+// Route to create a new user - NEW USER
+router.post('/api/users', newUser);
 
-// Route that allows user to log out - LOG OUT
-router.post('/users/logout', LogoutUser);
+// Route to fetch all users - GET ALL USERS
+router.get('/api/users', getUsers);
 
-// Route handler to allow user to log out of all sessions - LOG OUT ALL
-router.post('/users/logoutAll', LogoutUserAll);
+// Route to fetch individual user by id - GET USER BY ID
+router.get('/api/users/:id', getUserById);
 
-// Route handler that allows user to get profile when they are authenicated
-router.get('/users/me', getUserProfile);
+// Route handler to update an existing user - UPDATE USER BY ID
+router.patch('/api/users/:id', updateUserById);
 
-// Route handler to updata an individual user by ID
-router.patch('/users/me', updateUserProfile);
-
-// Route handler to allow logged in user to delete thier own user profile - REMOVE ACCOUNT
-router.delete('/users/me', deleteUser);
+// Route handler to delete a user by ID - DELETE USER BY ID
+router.delete('/api/users/:id', deleteUserById);
 
 // export the router to be used
 export default router;

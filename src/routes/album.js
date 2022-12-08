@@ -1,6 +1,5 @@
 import { Router } from 'express';
 
-// Define a new router
 const router = new Router();
 
 import {

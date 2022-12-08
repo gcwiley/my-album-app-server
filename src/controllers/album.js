@@ -1,7 +1,6 @@
-// Import the Album model
 import { Album } from '../models/album.js';
 
-// functin to create a new album - NEW ALBUM
+// function to create a new album - NEW ALBUM
 export const newAlbum = async (req, res) => {
   const album = Album.build(req.body);
 

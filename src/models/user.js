@@ -18,16 +18,13 @@ const User = sequelize.define('user', {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  username: {
+  email: {
     type: DataTypes.STRING,
     unique: true,
     allowNull: false,
-    validate: {
-      // require username is have length of least 3, and only use letters, numbers, and underscores
-      is: /^\w{3,}%/,
     },
   },
-});
+);
 
-// Export the User model
+// export the user model
 export { User };
