@@ -1,7 +1,9 @@
 import { Router } from 'express';
 
+// create a new router
 const router = new Router();
 
+// import controllers
 import {
   newAlbum,
   getAlbums,

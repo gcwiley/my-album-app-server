@@ -12,11 +12,12 @@ export const newComment = async (req, res) => {
   }
 };
 
-// function to fetch all albums from database - ALL COMMENTS
+// function to fetch all comments from database - ALL COMMENTS
 export const getComments = async (req, res) => {
   try {
     const comments = await Comment.findAll();
 
+    // if no comments are found in db
     if (!comments) {
       return res.status(404).send();
     }
@@ -27,7 +28,7 @@ export const getComments = async (req, res) => {
   }
 };
 
-// function to delete album by id - DELETE COMMENT
+// function to delete comment by id - DELETE COMMENT
 export const deleteCommentById = async (req, res) => {
   // convert string to integer
   const id = parseInt(req.params.id);
@@ -39,6 +40,7 @@ export const deleteCommentById = async (req, res) => {
       },
     });
 
+    // if no comment if found to delete
     if (!comment) {
       res.status(404).send();
     }

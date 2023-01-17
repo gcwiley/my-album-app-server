@@ -1,12 +1,13 @@
 import path from 'path';
+import { fileURLToPath } from 'url';
 import process from 'process';
 import express from 'express';
 import logger from 'morgan';
 import { applicationDefault, initializeApp } from 'firebase-admin/app';
-import * as dotenv from 'dotenv';
 
-// load environment variables
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
 
 // import sequelize instance
 import { sequelize } from './db/db.js';
@@ -14,8 +15,6 @@ import { sequelize } from './db/db.js';
 // Import Models
 import { Album } from './models/album.js';
 import { User } from './models/user.js';
-
-const __dirname = path.resolve();
 
 // Initialize the Firebase SDK
 initializeApp({
@@ -29,7 +28,7 @@ import albumRouter from './routes/album.js';
 const app = express();
 
 // set the port
-const port = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
 // allows static access to the angular folder
 app.use('/', express.static(path.join(__dirname, 'dist/my-album-app-client')));
@@ -57,6 +56,6 @@ console.log('All models were synchronized successfully');
 // set up associations
 await Album.belongsTo(User);
 
-app.listen(port, () => {
-  console.log('Successfully started server');
+app.listen(PORT, () => {
+  console.log(`Successfully started server on port ${PORT}`);
 });

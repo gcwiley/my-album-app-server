@@ -12,7 +12,7 @@ export const newUser = async (req, res) => {
   }
 };
 
-// function to fetch all albums from database - ALL USERS
+// function to fetch all users from database - ALL USERS
 export const getUsers = async (req, res) => {
   try {
     const users = await User.findAll();
@@ -45,8 +45,9 @@ export const getUserById = async (req, res) => {
   }
 };
 
-// function to update album by id - UPDATE ALBUM
+// function to update user by id - UPDATE USER
 export const updateUserById = async (req, res) => {
+  // convert id string to integer
   const id = parseInt(req.params.id);
 
   try {
@@ -66,7 +67,7 @@ export const updateUserById = async (req, res) => {
   }
 };
 
-// function to delete album by id - DELETE ALBUM
+// function to delete user by id - DELETE USER
 export const deleteUserById = async (req, res) => {
   // convert string to integer
   const id = parseInt(req.params.id);

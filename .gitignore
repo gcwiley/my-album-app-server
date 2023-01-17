@@ -4,8 +4,14 @@
 # Firebase Credentials
 credentials.json
 
-# env file
+# environmental variables file
 .env
+
+# Angular Dist Folder
+src/dist
+
+# Data Folder
+src/data
 
 # System Files
 .DS_Store
@@ -13,3 +19,8 @@ Thumbs.db
 
 # IDE - VSCode
 .vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
