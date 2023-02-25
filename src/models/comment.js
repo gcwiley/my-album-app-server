@@ -3,6 +3,7 @@ import { DataTypes } from 'sequelize';
 // import the sequelized instance
 import { sequelize } from '../db/db.js';
 
+// create the User model
 const Comment = sequelize.define('Comment', {
   id: {
     type: DataTypes.INTEGER,

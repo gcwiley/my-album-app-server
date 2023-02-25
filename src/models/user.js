@@ -3,6 +3,7 @@ import { DataTypes } from 'sequelize';
 // import the sequelized instance
 import { sequelize } from '../db/db.js';
 
+// create the User model
 const User = sequelize.define('user', {
   id: {
     type: DataTypes.INTEGER,
@@ -26,5 +27,5 @@ const User = sequelize.define('user', {
   },
 );
 
-// export the user model
+// Export the User model
 export { User };

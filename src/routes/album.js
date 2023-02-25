@@ -27,5 +27,5 @@ router.patch('/api/albums/:id', updateAlbumById);
 // Route handle to delete an album by ID - DELETE ALBUM
 router.delete('/api/albums/:id', deleteAlbumById);
 
-// export the router to be used.
+// export the router
 export default router;

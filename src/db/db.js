@@ -5,7 +5,8 @@ import * as dotenv from 'dotenv';
 // Loads .env file contents into process.env.
 dotenv.config();
 
-const sequelize = new Sequelize(`postgres://${process.env.USERNAME}:${process.env.PASSWORD}@postgre-sql-server-wiley.postgres.database.azure.com/postgres?sslmode=require`, {
+// create the sequelize instance
+const sequelize = new Sequelize(`postgres://gcwiley:${process.env.PASSWORD}@postgre-sql-server-wiley.postgres.database.azure.com/postgres?sslmode=require`, {
   dialect: 'postgres',
 });
 

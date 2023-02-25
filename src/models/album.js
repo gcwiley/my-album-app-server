@@ -20,7 +20,7 @@ const Album = sequelize.define('Album', {
     allowNull: false,
   },
   releaseDate: {
-    type: DataTypes.DATE,
+    type: DataTypes.STRING,
     allowNull: false,
   },
   label: {
@@ -41,5 +41,5 @@ const Album = sequelize.define('Album', {
   },
 });
 
-// export the model
+// export the Album model
 export { Album };
