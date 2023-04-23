@@ -48,7 +48,7 @@ app.use((req, res) => {
 });
 
 // synchronize all models
-await sequelize.sync();
+await sequelize.sync({ alter: true });
 console.log('All models were synchronized successfully');
 
 // start the server

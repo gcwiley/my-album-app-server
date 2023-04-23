@@ -5,12 +5,6 @@ import { sequelize } from '../db/db.js';
 
 // create the User model
 const User = sequelize.define('user', {
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
-  },
   firstName: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -23,9 +17,8 @@ const User = sequelize.define('user', {
     type: DataTypes.STRING,
     unique: true,
     allowNull: false,
-    },
   },
-);
+});
 
 // Export the User model
 export { User };

@@ -2,11 +2,12 @@ import { Album } from '../models/album.js';
 
 // function to create a new album - NEW ALBUM
 export const newAlbum = async (req, res) => {
+  // builds a new album instance
   const album = Album.build(req.body);
 
   try {
     await album.save();
-    res.status(201).send(album);
+    res.status(201).send(album); // fix this!
   } catch (error) {
     res.status(400).send(error);
   }
@@ -15,7 +16,9 @@ export const newAlbum = async (req, res) => {
 // function to fetch all albums from database - ALL ALBUMS
 export const getAlbums = async (req, res) => {
   try {
-    const albums = await Album.findAll();
+    const albums = await Album.findAll({});
+
+    console.log('ALL ALBUMS', albums);
 
     if (!albums) {
       return res.status(404).send();
@@ -83,6 +86,21 @@ export const deleteAlbumById = async (req, res) => {
     }
 
     res.send(album);
+  } catch (error) {
+    res.status(500).send();
+  }
+};
+
+// function to count all albums in database - ALBUM COUNT
+export const getAlbumCount = async (req, res) => {
+  try {
+    const albumCount = await Album.count({});
+
+    if (!albumCount) {
+      res.status(404).send();
+    }
+
+    res.send(albumCount);
   } catch (error) {
     res.status(500).send();
   }

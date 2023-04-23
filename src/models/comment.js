@@ -5,12 +5,6 @@ import { sequelize } from '../db/db.js';
 
 // create the User model
 const Comment = sequelize.define('Comment', {
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
-  },
   title: {
     type: DataTypes.STRING,
     allowNull: false,

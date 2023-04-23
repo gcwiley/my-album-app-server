@@ -6,9 +6,12 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 // create the sequelize instance
-const sequelize = new Sequelize(`postgres://gcwiley:${process.env.PASSWORD}@postgre-sql-server-wiley.postgres.database.azure.com/postgres?sslmode=require`, {
-  dialect: 'postgres',
-});
+const sequelize = new Sequelize(
+  `postgres://gcwiley:${process.env.PASSWORD}@postgre-sql-server-wiley.postgres.database.azure.com/postgres?sslmode=require`,
+  {
+    dialect: 'postgres',
+  }
+);
 
 // tests the connection by trying to authenicate
 try {

@@ -5,12 +5,6 @@ import { sequelize } from '../db/db.js';
 
 // create the Album model
 const Album = sequelize.define('Album', {
-  id: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    autoIncrement: true,
-    primaryKey: true,
-  },
   title: {
     type: DataTypes.STRING,
     allowNull: false,
